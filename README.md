@@ -8,6 +8,18 @@ Click here to [text a live version deployed on heroku](https://www.heroku.com). 
 
 <img src='members_sample.gif' alt='members_demo'>
 
+## Plan
+
+- Don't worry about editing or deleting posts
+- Plan out the User and Post models, including their associations
+  - User: username, email, password, id
+  - Posts: title, body, id, user_id
+- Create Post model with appropriate schema
+- Create routes for user
+- Create controller to create users (#new and #create)
+- Create validation for user
+- Do authentication process for posts
+
 ## Features
 
 - MVC Design Pattern adhered to with User and Post models which interact with Routes, Controllers, and Views
