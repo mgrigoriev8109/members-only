@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   # resources :posts, only: [:new, :create, :index]
   # Defines the root path route ("/")
-  root "users#index"
+  root to: 'devise/registrations#new'
 end

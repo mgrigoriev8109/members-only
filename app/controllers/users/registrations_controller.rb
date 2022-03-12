@@ -6,21 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   # GET /resource/sign_up
-   def new
-     @user = User.new()
-   end
+   #def new
+   #  super
+   #end
 
   # POST /resource
-  def create
-    @user = user.new(params[:user])
-    if @user.save
-      redirect_to @user
-    else
-      # This line overrides the default rendering behavior, which
-      # would have been to render the "create" view.
-      render "new"
-    end
-  end
+  #def create
+  #  super
+  #end
 
   # GET /resource/edit
   # def edit
