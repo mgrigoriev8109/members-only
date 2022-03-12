@@ -1,2 +1,13 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, "Username:" %>
+  <%= form.text_field :username, :value => "bobdoe" %>
+  <%= form.label :email, "Email:" %>
+  <%= form.email_field :email, placeholder: "bobdoe@gmail.com" %>
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+  <%= form.submit "Submit" %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+<% end %>
