@@ -1,18 +1,39 @@
-<%= form_with model: @post do |form| %>
-  <%= form.label :body, "Create a new anonymous post:" %>
-  <%= form.text_area :body, size:"70x5", :value => "Post goes here" %>
-
-  <%= form.submit "Submit" %>
-  
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Members Only</title>
+</head>
+<body>
+  <div class="image-container">
+    <img class="background-image" src="background.jpg" alt="background image">
+    <div class="logo-container">
+      <div class="logo-text">MEMBERS ONLY</div>
     </div>
-  <% end %>
-<% end %>
+  </div>
+
+  <div class="content-container">
+    <header id="header">
+      <h1>Members Only uses Devise authentication to allow logged in users to make anonymous posts.</h1>
+      <h1>Posts are anonymous, except those written by the logged in user.</h1>
+    </header>
+
+    <main id="main">
+      <%= form_with model: @post do |form| %>
+        <%= form.label :body, "Create a new anonymous post:" %>
+        <%= form.text_area :body, size:"70x5" %>
+        
+        <%= form.submit "Submit" %>
+      <% end %>
+    </main>
+
+    <footer id="footer">
+      <%= link_to "All Posts", posts_path %>
+      <%= link_to "Sign Out", destroy_user_session_path %>
+    </footer>
+  </div>
+</body>
+</html>
