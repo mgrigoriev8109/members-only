@@ -3,6 +3,10 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
+      <% if user_signed_in? && current_user.id == post.user_id %>
+      <%= current_user.username %>
+      <% end %>
+
       <%= post.body %>
     </li>
   <% end %>
