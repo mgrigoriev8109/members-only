@@ -18,15 +18,18 @@
   <div class="content-container">
     <header id="header">
      <h1>Posts are anonymous.</h1>
-     <h1>Logged in users can see which posts they are the authors of.</h1>
+     <h1>Log in to see which posts you have made thus far.</h1>
     </header>
 
     <main id="main">
       <%= form_with model: @post do |form| %>
-        <%= form.label :body, "Create new post:" %>
-        <%= form.text_area :body, size:"70x5" %>
-        
-        <%= form.submit "Submit" %>
+        <div class='form-row'>
+          <%= form.label :body, "Post:" %>
+          <%= form.text_area :body, size:"70x5" %>
+        </div>
+        <div class='form-row'>
+          <%= form.submit "Submit", class: "button" %>
+        </div>
       <% end %>
     </main>
 
