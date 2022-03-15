@@ -24,8 +24,10 @@
     <main id="main">
       <%= form_with model: @post do |form| %>
         <div class='form-row'>
-          <%= form.label :body, "Post:" %>
-          <%= form.text_area :body, size:"70x5" %>
+          <p>Create new post:</p>
+        </div>
+        <div class='form-row'>
+          <%= form.text_area :body, :maxlength => 250, size:"70x5" %>
         </div>
         <div class='form-row'>
           <%= form.submit "Submit", class: "button" %>
