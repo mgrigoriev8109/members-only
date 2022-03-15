@@ -23,14 +23,16 @@
       </header>
 
       <main id="main">
-        <ul>
+        <ul id="grid-container">
           <% @posts.each do |post| %>
             <li>
               <% if user_signed_in? && current_user.id == post.user_id %>
-              <%= current_user.username %>
+               <p> Author: <%= current_user.username %> </p>
+              <% else %>
+               <p> Author: Anonymous </p>
               <% end %>
 
-              <%= post.body %>
+              <p> <%= post.body %> </p>
             </li>
           <% end %>
         </ul>
