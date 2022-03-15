@@ -1,18 +1,56 @@
-<h1>Posts</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="application.css">
+    <title>Members Only</title>
+  </head>
+    
+  <body>
+    <div class="image-container">
+      <%= image_tag "background-3.jpg" %>
+      <div class="logo-container">
+        <div class="logo-text">MEMBERS ONLY</div>
+      </div>
+    </div>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <% if user_signed_in? && current_user.id == post.user_id %>
-      <%= current_user.username %>
-      <% end %>
+    <div class="content-container">
+      <header id="header">
+      <h1>Post authors are anonymous.</h1>
+      <h1>Logged in users can see which posts they created.</h1>
+      </header>
 
-      <%= post.body %>
-    </li>
-  <% end %>
-</ul>
+      <main id="main">
+        <ul>
+          <% @posts.each do |post| %>
+            <li>
+              <% if user_signed_in? && current_user.id == post.user_id %>
+              <%= current_user.username %>
+              <% end %>
 
-<%= link_to "New Post", new_post_path %>
-<%= link_to "Sign In", new_user_session_path %>
-<%= link_to "Sign Up", new_user_registration_path %>
-<%= link_to "Sign Out", destroy_user_session_path %>
+              <%= post.body %>
+            </li>
+          <% end %>
+        </ul>
+      </main>
+
+      <footer id="footer">
+        <%= link_to "New Post", new_post_path %>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+        <%= link_to "Sign Out", destroy_user_session_path %>
+      
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+      </footer>
+    </div>
+  </body>
+</html>
+
