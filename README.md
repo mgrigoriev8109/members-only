@@ -13,8 +13,6 @@
 ## Features
 
 - Authenticate user data using Devise to ensure client privacy
-- Perform integration testing with Capybara to ensure function properly together and align with project requirements
 - Use MVC design pattern to separate Models and Views from Controllers for ease of code maintainability
-- Utilize flash to show form validation errors for smoother UX experience
 - Fix Rubocop warnings to decrease probability of future bugs and errors in the code
 - Use Flexbox and Grid together for layout and design of each View
