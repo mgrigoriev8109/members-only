@@ -1,13 +1,12 @@
 <main id="main">
   <ul id="grid-container">
-    <% @posts.each do |post| %>
+    <% @posts.reverse.each do |post| %>
       <li>
-        <% if user_signed_in? && current_user.id == post.user_id %>
-          <p> Author: <%= current_user.username %> </p>
+        <% if user_signed_in? %>
+          <p> Posted by username: <%= current_user.username %> on <%= post.created_at.to_date %></p>
         <% else %>
-          <p> Author: Anonymous </p>
+          <p> Posted by Anonymous User on <%= post.created_at.to_date %></p>
         <% end %>
-
         <p> <%= post.body %> </p>
       </li>
     <% end %>
