@@ -1,64 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="application.css">
-    <title>Members Only</title>
-  </head>
-    
-  <body>
-    <div class="image-container">
-      <%= image_tag "background-4.jpg" %>
-      <div class="logo-container">
-        <div class="logo-text">MEMBERS ONLY</div>
+<main id="main">
+  <h1>Sign In</h1>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
       </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: "button"%>
     </div>
-
-    <div class="content-container">
-      <header id="header">
-      <h1>Sign In</h1>
-      </header>
-
-      <main id="main">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
-          </div>
-
-          <% if devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-          <% end %>
-
-          <div class="actions">
-            <%= f.submit "Log in", class: "button"%>
-          </div>
-        <% end %>
-      </main>
-
-      <footer id="footer">
-        <%= link_to "All Posts", posts_path %>
-        <%= link_to "Sign Up", new_user_registration_path %>
-        <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-
-        <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
-       </footer>
-    </div>
-  </body>
-</html>
-
-
+  <% end %>
+</main>
