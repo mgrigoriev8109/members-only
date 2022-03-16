@@ -176,7 +176,9 @@ li {
 
 p:first-child {
   text-align: center;
+  font-weight: bold;
 }
+
 #footer {
   height: var(--footer);
   justify-content: center;
