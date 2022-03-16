@@ -1,36 +1,20 @@
 # Members Only
 
-This website is built from scratch to provide users with the ability to write anonymous posts. Upon sign-in and authentication the user can view the names of the posts' author. 
-
-Click here to [text a live version deployed on heroku](https://www.heroku.com). Sign-in with the username: `user1` and the password: `password1`.
+Members Only is a full-stack Rails app built from scratch, providing Users with the ability to create anonymous posts. While not signed out all posts are Anonymous, but upon signing up and signing in a user can create new posts, and see the posts they have created in the past.
 
 ## Demo
 
-<img src='members_sample.gif' alt='members_demo'>
+<img src='members-demo.png' alt='members_demo'>
 
-## Plan
+## How to Access
 
-- Don't worry about editing or deleting posts
-- Plan out the User and Post models, including their associations
-  - User: username, email, password, id
-  - Posts: title, body, id, user_id
-- Create Post model with appropriate schema
-- Create routes for user
-- Create controller to create users (#new and #create)
-- Create validation for user
-- Do authentication process for posts
+[This link will take you to the live website](https://peaceful-river-81983.herokuapp.com/) deployed on heroku. Sign-in with the username: `user1` and the password: `password1`.
 
 ## Features
 
-- MVC Design Pattern adhered to with User and Post models which interact with Routes, Controllers, and Views
-- Devise gem used for the sake of authentication.
-- Page Layout created by combining Flexbox and Grid with various concepts from HTML5 and CSS3.
-- Retroactively added integration tests using the Capybara gem.
-- Refactored to adhere to OOP principles researched from Sandi Metz's 99OOP book. 
-  - Principle 1:
-
-## Known Bugs
-
-
-## Reflections
-
+- Authenticate user data using Devise to ensure client privacy
+- Perform integration testing with Capybara to ensure function properly together and align with project requirements
+- Use MVC design pattern to separate Models and Views from Controllers for ease of code maintainability
+- Utilize flash to show form validation errors for smoother UX experience
+- Fix Rubocop warnings to decrease probability of future bugs and errors in the code
+- Use Flexbox and Grid together for layout and design of each View
