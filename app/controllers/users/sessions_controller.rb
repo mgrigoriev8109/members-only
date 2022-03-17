@@ -10,10 +10,8 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
    def create
-    super
-
-    unless resource.save
-      render :new, status:unprocessable_entity
+    super do |resource|
+      BackgroundWorker.trigger(resource)
     end
    end
 

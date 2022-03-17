@@ -21,5 +21,11 @@
     <div class="actions">
       <%= f.submit "Log in", class: "button"%>
     </div>
+    
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
   <% end %>
 </main>
